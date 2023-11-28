@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: myproject
+  namespace: argocd
+spec:
+  namespaceResourceWhitelist:
+  - group: ""        # "" indicates the core group
+    kind: Pod
+  - group: ""        # "" indicates the core group
+    kind: Service
+  - group: "apps"    # "apps" is the group for Deployment
+    kind: Deployment
+
