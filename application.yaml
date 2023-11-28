@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Rendani-M/kubeApi.git
     path: devfiles
-    targetRevision: HEAD
+    targetRevision: HEAD                              #Means you can take the latest code to compare with
   destination: 
     server: https://kubernetes.default.svc
     namespace: testApiNS 
