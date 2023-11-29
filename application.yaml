@@ -1,31 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: testapi-project
-  namespace: argocd
-spec:
-  namespaceResourceWhitelist:
-  - group: ""        # "" indicates the core group
-    kind: Pod
-  - group: ""        # "" indicates the core group
-    kind: Service
-  - group: "apps"    # "apps" is the group for Deployment
-    kind: Deployment
----
-apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: myapp-argo-application
   namespace: argocd
 spec:
-  project: myproject
+  project: default
   source:
     repoURL: https://github.com/Rendani-M/kubeApi.git
     path: devfiles
-    targetRevision: HEAD
+    targetRevision: HEAD                              #Means you can take the latest code to compare with
   destination: 
     server: https://kubernetes.default.svc
-    namespace: testApiNS 
+    namespace: testapins 
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
